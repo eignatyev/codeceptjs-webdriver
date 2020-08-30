@@ -11,8 +11,11 @@ exports.config = {
       restart: false,
       windowSize: '1280x720',
       desiredCapabilities: {
+        "moz:firefoxOptions": {
+          args: [ /*"--headless",*/ "--width=1280", "--height=720" ]
+        },
         chromeOptions: {
-          args: [ /*"--headless",*/ "--disable-gpu", "--no-sandbox" ]
+          args: [ /*"--headless",*/ "--disable-gpu", "--no-sandbox", "--width=1280", "--height=720" ]
         }
       }
     },

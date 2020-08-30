@@ -20,12 +20,15 @@
 * The default test run with `npm test`
   * triggers execution on Chrome and Firefox in parallel
   * Generates a test report with the help from [Mochawesome](https://www.npmjs.com/package/mochawesome) in the `output` folder
-* In case you want to run test against a specific browser, use:
-  * `npm test --codeceptjswebdriver:testOptions=chrome` for Chrome
-  * `npm test --codeceptjswebdriver:testOptions=firefox` for Firefox
-* An example how to run tests against Chrome with test report generated
+* To run test against a specific browser, use:
+  * Chrome: `npm test --codeceptjswebdriver:testOptions=chrome`
+  * Firefox: `npm test --codeceptjswebdriver:testOptions=firefox`
+
+**Examples:**
+
+* To run tests against Chrome with test report generated
   * `npm test --codeceptjswebdriver:testOptions="chrome --reporter mochawesome"`
-* An example how to run tests against both browsers with test report generated
+* to run tests against both browsers with test report generated
   * `npm test --codeceptjswebdriver:testOptions="--all --reporter mochawesome"`
 
 ## Run with the Selenoid Docker image
@@ -39,5 +42,15 @@
 
 **Instruction:**
 
-* Cross-browser run `npm test:selenoid:cross`
-* Single-browser run `npm test:selenoid:chrome` or `npm test:selenoid:firefox`
+* Cross-browser run `npm test:selenoid`
+* Single-browser run
+  * Chrome: `npm run test:selenoid --codeceptjswebdriver:testOptions=chrome`
+  * Firefox: `npm run test:selenoid --codeceptjswebdriver:testOptions=firefox`
+
+### Available Run Options
+
+* `chrome` - run tests against Chrome
+* `firefox` - run tests against Firefox
+* `--all` - run tests against Chrome and Firefox
+* `--steps` - output detailed test steps tree
+* `--reporter mochawesome` - enable HTML report generation (`./output` folder)

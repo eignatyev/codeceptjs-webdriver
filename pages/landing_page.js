@@ -5,7 +5,7 @@ module.exports = {
   /* Locators */
 
   searchField: locate('#imysearchstring'),
-  suggestedLocations: locate('#iautoCompleteDropDownContent'),
+  suggestedLocation: locate('#iautoCompleteDropDownContent a'),
   suggestedDeliveryAreas: locate('#reference'),
 
 
@@ -18,7 +18,7 @@ module.exports = {
    */
   findRestaurantsInArea(location, area) {
     I.fillField(this.searchField, location);
-    I.click(this.suggestedLocations.withText(location));
+    I.click(this.suggestedLocation.withText(location));
     I.click(this.suggestedDeliveryAreas.withText(`${location} ${area}`));
 
     // Verify the restaurants' page is opened
