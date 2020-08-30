@@ -10,11 +10,11 @@ Scenario('Add 1 item, tip and submit', async (
     I.amOnPage('/en');
     I.setCookie({name: 'cookieConsent', value: 'full'});
 
-    landingPage.findRestaurantsInArea('8888', 'Alpha');
-    restaurantsPage.openRestaurantMenu('TEST Restaurant Selenium');
-    menuPage.addSimpleItemToBasket('Sprite');
+    landingPage.findRestaurantsInArea(orderData.Location.Primary, orderData.Location.Secondary);
+    restaurantsPage.openRestaurantMenu(orderData.RestaurantName);
+    menuPage.addSimpleItemToBasket(orderData.ItemName);
     menuPage.submitBasket();
-    await orderPage.fillFormAndSubmit(orderData, 'As soon as possible', true);
+    await orderPage.fillFormAndSubmit(orderData, true);
 
     I.scrollPageToBottom();  // To see a relevant screenshot if the test fails
     const orderReferenceValue = await I.grabTextFrom(orderConfirmationPage.orderReferenceValue);
@@ -30,11 +30,11 @@ Scenario('Add 1 menu and submit', async (
     I.amOnPage('/en');
     I.setCookie({name: 'cookieConsent', value: 'full'});
 
-    landingPage.findRestaurantsInArea('8888', 'Alpha');
-    restaurantsPage.openRestaurantMenu('TEST Restaurant Selenium');
-    await menuPage.addMenuToBasket('Drinks');
+    landingPage.findRestaurantsInArea(orderData.Location.Primary, orderData.Location.Secondary);
+    restaurantsPage.openRestaurantMenu(orderData.RestaurantName);
+    await menuPage.addMenuToBasket(orderData.CategoryName);
     menuPage.submitBasket();
-    await orderPage.fillFormAndSubmit(orderData, 'As soon as possible');
+    await orderPage.fillFormAndSubmit(orderData);
 
     I.scrollPageToBottom();  // To see a relevant screenshot if the test fails
     const orderReferenceValue = await I.grabTextFrom(orderConfirmationPage.orderReferenceValue);

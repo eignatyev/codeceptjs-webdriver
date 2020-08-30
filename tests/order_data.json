@@ -1,8 +1,18 @@
 {
-  "Address": "main street 2415",
-  "PostCode": "8888AA",
-  "City": "Enschede",
-  "Name": "TestUSer",
-  "PhoneNumber": "1234567890",
-  "EMail": "testuser@test.test"
+  "Location": {
+    "Primary": "8888",
+    "Secondary": "Alpha"
+  },
+  "RestaurantName": "TEST Restaurant Selenium",
+  "ItemName": "Sprite",
+  "CategoryName": "Drinks",
+  "OrderForm": {
+    "Address": "main street 2415",
+    "PostCode": "8888AA",
+    "City": "Enschede",
+    "Name": "TestUSer",
+    "PhoneNumber": "1234567890",
+    "EMail": "testuser@test.test",
+    "DeliveryTime": "As soon as possible"
+  }
 }

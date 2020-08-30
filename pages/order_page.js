@@ -21,16 +21,15 @@ module.exports = {
     I.selectOption(this.paymentDropDown, priceWithTipText);
   },
 
-  async fillFormAndSubmit(orderData, deliveryTime, isToTip) {
+  async fillFormAndSubmit(orderData, isToTip) {
     I.see('Address');
-    I.fillField('Address', orderData.Address);
-    I.fillField('Postcode', orderData.PostCode);
-    I.fillField('City', orderData.City);
-    I.fillField('Name', orderData.Name);
-    I.fillField('E-mail', orderData.EMail);
-    I.fillField('Phone number', orderData.PhoneNumber);
-
-    I.selectOption(this.deliveryTimeDropDown, deliveryTime);
+    I.fillField('Address', orderData.OrderForm.Address);
+    I.fillField('Postcode', orderData.OrderForm.PostCode);
+    I.fillField('City', orderData.OrderForm.City);
+    I.fillField('Name', orderData.OrderForm.Name);
+    I.fillField('E-mail', orderData.OrderForm.EMail);
+    I.fillField('Phone number', orderData.OrderForm.PhoneNumber);
+    I.selectOption(this.deliveryTimeDropDown, orderData.OrderForm.DeliveryTime);
 
     if (isToTip) {
       await this.tip();
