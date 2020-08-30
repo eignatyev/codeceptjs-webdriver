@@ -1,0 +1,27 @@
+{
+  "name": "codeceptjswebdriver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "codecept.conf.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npx codeceptjs run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eignatyev/codeceptjs-webdriver.git"
+  },
+  "author": "Egor Ignatyev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eignatyev/codeceptjs-webdriver/issues"
+  },
+  "homepage": "https://github.com/eignatyev/codeceptjs-webdriver#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "codeceptjs": "^2.6.10",
+    "webdriverio": "^6.4.4"
+  }
+}
