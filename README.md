@@ -1,4 +1,4 @@
-# Web Automated Testing PoC with CodeceptJS and WebdriverIO
+# Web Automated Testing with CodeceptJS
 
 ## Prepare the Working Space
 
@@ -37,12 +37,26 @@
 
 * Install [Docker Desktop](https://docs.docker.com/desktop/)
 * Start Docker Desktop locally
+* Create a Selenoid container
+
+```bash
+docker create                                    \
+--name selenoid                                  \
+-p 4444:4444                                     \
+-v /var/run/docker.sock:/var/run/docker.sock     \
+-v `pwd`/:/etc/selenoid/:ro                      \
+-v `pwd`/output/video/:/opt/selenoid/video/      \
+-e OVERRIDE_VIDEO_OUTPUT_DIR=`pwd`/output/video/ \
+aerokube/selenoid:latest-release
+```
+
+* Pull Chrome image `docker pull selenoid/chrome:85.0`
+* Pull Firefox image `docker pull selenoid/firefox:73.0`
 * Enable the `Selenoid` plugin in `codecept.conf.js`
 * Disable the `wdio` plugin in `codecept.conf.js`
 
 **Instruction:**
 
-* Cross-browser run `npm test:selenoid`
 * Single-browser run
   * Chrome: `npm run test:selenoid --codeceptjswebdriver:testOptions=chrome`
   * Firefox: `npm run test:selenoid --codeceptjswebdriver:testOptions=firefox`

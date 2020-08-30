@@ -1,1 +1,22 @@
-{"chrome":{"default":"latest","versions":{"latest":{"image":"selenoid/chrome:latest","port":"4444","path":"/"}}},"firefox":{"default":"latest","versions":{"latest":{"image":"selenoid/firefox:latest","port":"4444","path":"/wd/hub"}}}}
+{
+  "chrome": {
+    "default": "85.0",
+    "versions": {
+      "85.0": {
+        "image": "selenoid/chrome:85.0",
+        "port": "4444",
+        "path": "/"
+      }
+    }
+  },
+  "firefox": {
+    "default": "73.0",
+    "versions": {
+      "73.0": {
+        "image": "selenoid/firefox:73.0",
+        "port": "4444",
+        "path": "/wd/hub"
+      }
+    }
+  }
+}
