@@ -7,7 +7,14 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "npx codeceptjs run"
+    "start-selenium-service": "npx selenium-standalone start",
+    "kill-selenium-service": "npx kill-port 4444",
+    "test:cross": "npm run start-selenium-service & (npx codeceptjs run-multiple basic && npm run kill-selenium-service)",
+    "test:chrome": "npm run start-selenium-service & (npx codeceptjs run-multiple basic:chrome && npm run kill-selenium-service)",
+    "test:firefox": "npm run start-selenium-service & (npx codeceptjs run-multiple basic:firefox && npm run kill-selenium-service)",
+    "test:selenoid:cross": "npx codeceptjs run-multiple basic",
+    "test:selenoid:chrome": "npx codeceptjs run-multiple basic:chrome",
+    "test:selenoid:firefox": "npx codeceptjs run-multiple basic:firefox"
   },
   "repository": {
     "type": "git",
@@ -20,8 +27,10 @@
   },
   "homepage": "https://github.com/eignatyev/codeceptjs-webdriver#readme",
   "devDependencies": {
+    "@wdio/selenium-standalone-service": "^6.4.0",
     "chai": "^4.2.0",
     "codeceptjs": "^2.6.10",
+    "kill-port": "^1.6.1",
     "webdriverio": "^6.4.4"
   }
 }
