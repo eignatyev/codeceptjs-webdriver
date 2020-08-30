@@ -2,26 +2,42 @@
 
 ## Prepare the Working Space
 
-1. Install [Node.js](https://nodejs.org/en/) (version `12.18.3 LTS`)
-1. Clone the repo `git clone https://github.com/eignatyev/codeceptjs-webdriver.git`
-1. Open the root folder `cd codeceptjs-webdriver`
-1. Install node modules `npm i`
+* Install [Node.js](https://nodejs.org/en/) (version `12.18.3 LTS`)
+* Clone the repo `git clone https://github.com/eignatyev/codeceptjs-webdriver.git`
+* Open the root folder `cd codeceptjs-webdriver`
+* Install node modules `npm i`
 
 ## Run Locally With Selenium WebDriver
 
-1. Cross-browser run `npm run test:cross`
-1. Single-browser run `npm run test:chrome` or `npm run test:firefox`
+**Preconditions:**
+
+* Install browsers
+  * [Chrome](https://www.google.com/intl/en_ie/chrome/)
+  * [Firefox](https://www.mozilla.org/en-US/firefox/new/)
+
+**Instruction:**
+
+* The default test run with `npm test`
+  * triggers execution on Chrome and Firefox in parallel
+  * Generates a test report with the help from [Mochawesome](https://www.npmjs.com/package/mochawesome) in the `output` folder
+* In case you want to run test against a specific browser, use:
+  * `npm test --codeceptjswebdriver:testOptions=chrome` for Chrome
+  * `npm test --codeceptjswebdriver:testOptions=firefox` for Firefox
+* An example how to run tests against Chrome with test report generated
+  * `npm test --codeceptjswebdriver:testOptions="chrome --reporter mochawesome"`
+* An example how to run tests against both browsers with test report generated
+  * `npm test --codeceptjswebdriver:testOptions="--all --reporter mochawesome"`
 
 ## Run with the Selenoid Docker image
 
-### Preconditions
+**Preconditions:**
 
-1. Install [Docker Desktop](https://docs.docker.com/desktop/)
-1. Start Docker Desktop locally
-1. Enable the `Selenoid` plugin in `codecept.conf.js`
-1. Disable the `wdio` plugin in `codecept.conf.js`
+* Install [Docker Desktop](https://docs.docker.com/desktop/)
+* Start Docker Desktop locally
+* Enable the `Selenoid` plugin in `codecept.conf.js`
+* Disable the `wdio` plugin in `codecept.conf.js`
 
-----
+**Instruction:**
 
-1. Cross-browser run `npm run test:selenoid:cross`
-1. Single-browser run `npm run test:selenoid:chrome` or `npm run test:selenoid:firefox`
+* Cross-browser run `npm test:selenoid:cross`
+* Single-browser run `npm test:selenoid:chrome` or `npm test:selenoid:firefox`

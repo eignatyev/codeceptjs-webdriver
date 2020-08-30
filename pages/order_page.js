@@ -37,5 +37,6 @@ module.exports = {
     }
 
     I.click(this.submitButton);
+    I.dontSeeElement(this.submitButton);
   }
 };

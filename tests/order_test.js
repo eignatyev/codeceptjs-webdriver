@@ -15,6 +15,8 @@ Scenario('Add 1 item, tip and submit', async (
     menuPage.addSimpleItemToBasket('Sprite');
     menuPage.submitBasket();
     await orderPage.fillFormAndSubmit(orderData, 'As soon as possible', true);
+
+    I.scrollPageToBottom();  // To see a relevant screenshot if the test fails
     const orderReferenceValue = await I.grabTextFrom(orderConfirmationPage.orderReferenceValue);
     assert.match(orderReferenceValue, /^[A-Z0-9]{6}$/, 'The reference value is invalid');
 
@@ -34,6 +36,7 @@ Scenario('Add 1 menu and submit', async (
     menuPage.submitBasket();
     await orderPage.fillFormAndSubmit(orderData, 'As soon as possible');
 
+    I.scrollPageToBottom();  // To see a relevant screenshot if the test fails
     const orderReferenceValue = await I.grabTextFrom(orderConfirmationPage.orderReferenceValue);
     assert.match(orderReferenceValue, /^[A-Z0-9]{6}$/, 'The reference value is invalid');
 

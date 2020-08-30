@@ -7,7 +7,7 @@ exports.config = {
       browser: 'chrome',
       host: '127.0.0.1',
       port: 4444,
-      smartWait: 5000,
+      smartWait: 7000,
       restart: false,
       windowSize: '1280x720',
       desiredCapabilities: {
@@ -15,24 +15,17 @@ exports.config = {
           args: [ /*"--headless",*/ "--disable-gpu", "--no-sandbox" ]
         }
       }
+    },
+    Mochawesome: {
+      uniqueScreenshotNames: true
     }
   },
   multiple: {
-    parallel: {
-      chunks: 2,
-      browsers: ['chrome', 'firefox']
+    chrome: {
+      browsers: ['chrome']
     },
-    basic: {
-      browsers: [
-        {
-          browser: 'firefox',
-          windowSize: '1280x720'
-        },
-        {
-          browser: 'chrome',
-          windowSize: '1280x720'
-        }
-      ]
+    firefox: {
+      browsers: ['firefox']
     },
   },
   include: {
@@ -44,7 +37,11 @@ exports.config = {
     orderConfirmationPage: './pages/order_confirmation_page',
   },
   bootstrap: null,
-  mocha: {},
+  mocha: {
+    reporterOptions: {
+      reportDir: "output"
+    }
+  },
   name: 'CodeceptJsWebdriver',
   plugins: {
     wdio: {
