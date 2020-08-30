@@ -14,7 +14,7 @@ Scenario('Add 1 item, tip and submit', async (
     restaurantsPage.openRestaurantMenu(orderData.RestaurantName);
     menuPage.addSimpleItemToBasket(orderData.ItemName);
     menuPage.submitBasket();
-    await orderPage.fillFormAndSubmit(orderData, true);
+    await orderPage.fillFormAndSubmit(orderData, isToTip=true);
 
     I.scrollPageToBottom();  // To see a relevant screenshot if the test fails
     const orderReferenceValue = await I.grabTextFrom(orderConfirmationPage.orderReferenceValue);
@@ -32,7 +32,7 @@ Scenario('Add 1 menu and submit', async (
 
     landingPage.findRestaurantsInArea(orderData.Location.Primary, orderData.Location.Secondary);
     restaurantsPage.openRestaurantMenu(orderData.RestaurantName);
-    await menuPage.addMenuToBasket(orderData.CategoryName);
+    await menuPage.addCategoryItemsToBasket(orderData.CategoryName);
     menuPage.submitBasket();
     await orderPage.fillFormAndSubmit(orderData);
 
